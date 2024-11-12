@@ -1,0 +1,119 @@
+/* Carousel Item with Gradient Overlay and Blur Effect */
+.carousel-item {
+  position: relative;
+  overflow: hidden; /* Ensure the blur effect doesn't overflow */
+}
+
+.carousel-item img {
+  filter: blur(5px); /* Apply blur to the image */
+  object-fit: cover; /* Ensure the image covers the full container */
+  width: 100%;
+  height: 100%;
+}
+
+/* Gradient overlay */
+.carousel-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.7)
+  ); /* Gradient overlay */
+  z-index: 1; /* Make sure the overlay is above the image but below the caption */
+}
+
+/* Carousel Caption styling */
+.carousel-caption {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  text-align: center;
+  z-index: 2; /* Ensure the caption is above the overlay */
+  color: white; /* Ensure the text is visible */
+}
+
+/* Optional: Style for the buttons */
+.carousel-caption .btn {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 30px;
+}
+
+/* Menu Card Styling */
+.menu_card {
+  height: 450px;
+  position: relative; /* For positioning the button */
+  overflow: hidden; /* Ensure content doesn't overflow during hover effect */
+  transition: transform 0.4s ease-in-out; /* Smooth scale transition */
+}
+
+/* Hidden "Order Now" button */
+.order-btn-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none; /* Hidden by default */
+  z-index: 2; /* Ensure the button is above other content */
+}
+
+/* Blur effect for content inside the card */
+.menu_card .card-body,
+.menu_card img {
+  transition: filter 0.4s ease; /* Smooth blur transition */
+}
+
+/* On hover: Show the "Order Now" button and apply blur to content */
+.menu_card:hover .order-btn-container {
+  display: block; /* Show the button */
+}
+
+.menu_card:hover .card-body,
+.menu_card:hover img {
+  filter: blur(5px); /* Apply blur to text and image */
+}
+
+/* Optional: Scale the card slightly on hover */
+.menu_card:hover {
+  transform: scale(1.1); /* Slight scaling on hover */
+}
+
+/* Add glowing border effect on form fields */
+.form-control:focus {
+  border-color: #f0ad4e; /* Border color when focused */
+  box-shadow: 0 0 10px rgba(240, 173, 78, 0.7); /* Glowing effect around the input */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+.form-control {
+  transition: border-color 0.3s ease-in-out; /* Smooth transition on focus */
+}
+
+/* Example for custom styling */
+@media (max-width: 768px) {
+  .menu_card {
+    margin-bottom: 10px;
+  }
+
+  .carousel-caption h1 {
+    font-size: 1.8rem;
+  }
+
+  .order-btn-container a {
+    padding: 10px;
+  }
+}
+
+.carousel-caption h1 {
+  font-size: 1.5rem; /* Smaller size on mobile */
+}
+
+.carousel-caption h6 {
+  font-size: 0.875rem; /* Even smaller size on mobile */
+}
